@@ -3,15 +3,12 @@ import { dataPieChartInterface } from '../interfaces/PieChart';
 import { BsThreeDots } from "react-icons/bs";
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 import { ItemFooterPieChart } from './ItemFooterPieChart';
+import { Title } from './MyComponents';
 
 type PieChartProps = {
   title: string,
   data: dataPieChartInterface[],
 }
-type ItemFooterPieChart = {
-
-}
-
 export const PieChartCard = ({ title, data }: PieChartProps) => {
 
   const RADIAN = Math.PI / 180;
@@ -30,7 +27,7 @@ export const PieChartCard = ({ title, data }: PieChartProps) => {
   return (
     <ContianerPieChart className="cardDashboard">
         <div className="containerTitle">
-          <div className="title">{title}</div>
+          <Title>{title}</Title>
           <ContainerMenu className="cardDashboard">
             <BsThreeDots size="20"/>
           </ContainerMenu>

@@ -4,17 +4,30 @@ import {AiOutlineSetting} from 'react-icons/ai';
 import { MiniCard } from '../components/MiniCard';
 import { PieChartCard } from '../components/PieChartCard';
 import { useEffect, useState } from 'react';
-import { dataPieChartInterface } from '../interfaces/PieChart';
+import { dataGraphAreaChartInterface, dataPieChartInterface } from '../interfaces/PieChart';
 import { dataGraphPieChart } from '../utils/Constants';
 import { AreaChartGrpah } from '../components/AreaChartGrpah';
 
 export const Dashboard = () => {
 
   const [dataPieChart, setdataPieChart] = useState([] as dataPieChartInterface[]);
+  const [dataGraphAreaChart, setDataGraphAreaChart] = useState([] as dataGraphAreaChartInterface[]);
+  const mintMoney = 1000;
+  const maxMoney = 50000;
 
   useEffect(() => {
-    // Load data, also this download api e.g.
+    // Load data, also this can be download api e.g.
     setdataPieChart(dataGraphPieChart);
+
+    Math.floor(Math.random() * (maxMoney - mintMoney)) + mintMoney;
+    let aux:dataGraphAreaChartInterface[] = [];
+    for(let i = 0; i < 100; i++) {
+        aux.push({
+            name: `v-${i}`,
+            value:  Math.floor(Math.random() * (maxMoney - mintMoney)) + mintMoney
+        })
+    }
+    setDataGraphAreaChart(aux);
   }, []);
     
   return (
@@ -40,7 +53,7 @@ export const Dashboard = () => {
                 <PieChartCard title="Conversión" data={dataPieChart}/>
             </div>
 
-            <AreaChartGrpah title="Weekly expenses"/>
+            <AreaChartGrpah title="Weekly expenses" data={dataGraphAreaChart}/>
         </Main>
     </ContainerApp>
   )

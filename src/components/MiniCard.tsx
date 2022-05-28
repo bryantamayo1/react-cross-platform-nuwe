@@ -1,5 +1,5 @@
-import React from 'react'
 import styled from 'styled-components'
+import { MiniTitle } from './MyComponents'
 
 type MiniCardProps = {
     title: string,
@@ -12,7 +12,7 @@ export const MiniCard = ({ title, value, date }: MiniCardProps) => {
     <ContainerMiniCard className="cardDashboard">
         <CardTitle>{title}</CardTitle>
         <CardContainer>{value}</CardContainer>
-        <CardFooter>{date}</CardFooter>
+        <MiniTitle>{date}</MiniTitle>
     </ContainerMiniCard>
   )
 }
@@ -31,10 +31,4 @@ const CardContainer = styled.div`
     color: #6979F8;
     font-size: 48px;
     margin-top: 20px;
-`;
-const CardFooter = styled.div`
-    color: #999999;
-    font-size: 12px;
-    font-weight: 400;
-    margin-top: 15px;
 `;

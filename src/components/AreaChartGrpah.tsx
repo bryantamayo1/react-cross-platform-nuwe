@@ -14,6 +14,13 @@ type AreaChartGrpahProps = {
 export const AreaChartGrpah = ({ title, data }: AreaChartGrpahProps) => {
   const [startDate, setStartDate] = useState(new Date());
 
+  const CustomizedLabel = (event: any) => {
+    console.log(event)
+    return (
+      <div>123</div>
+    );
+  }
+
   return (
     <ContainerAreaChartGrpah className="cardDashboard">
       <ContainerTitle>
@@ -27,28 +34,28 @@ export const AreaChartGrpah = ({ title, data }: AreaChartGrpahProps) => {
         </div>
       </ContainerTitle>
 
-     <div style={{ overflowX: 'auto', overflowY: 'hidden'}}>
-      <ContianerGraph>
-        <ResponsiveContainer width="100%" height="100%">
-          <AreaChart
-            width={500}
-            height={400}
-            data={data}
-            margin={{
-              top: 10,
-              right: 30,
-              left: 0,
-              bottom: 0,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Area type="monotone" dataKey="value" stroke="#8884d8" fill="#8884d8" />
-          </AreaChart>
-        </ResponsiveContainer>
-      </ContianerGraph>
+      <div style={{ overflowX: 'auto', overflowY: 'hidden'}}>
+        <ContianerGraph>
+            <ResponsiveContainer width="100%" height="100%">
+              <AreaChart
+                width={500}
+                height={400}
+                data={data}
+                margin={{
+                  top: 10,
+                  right: 30,
+                  left: 0,
+                  bottom: 0,
+                }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis unit="K" label={<CustomizedLabel />}/>
+                <Tooltip />
+                <Area type="monotone" dataKey="value" stroke="#8884d8" fill="#8884d8" />
+              </AreaChart>
+            </ResponsiveContainer>
+        </ContianerGraph>
       </div> 
 
       <MiniTitle marginStyle="30px 0px 0px 0px">Total Revenue</MiniTitle>

@@ -24,7 +24,7 @@ export const Dashboard = () => {
     for(let i = 0; i < 100; i++) {
         aux.push({
             name: `v-${i}`,
-            value:  Math.floor(Math.random() * (maxMoney - mintMoney)) + mintMoney
+            value:  (Math.floor(Math.random() * (maxMoney - mintMoney)) + mintMoney) /1000
         })
     }
     setDataGraphAreaChart(aux);

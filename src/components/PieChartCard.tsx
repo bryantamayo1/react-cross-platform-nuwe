@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { dataPieChartInterface } from '../interfaces/PieChart';
 import { BsThreeDots } from "react-icons/bs";
-import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 import { ItemFooterPieChart } from './ItemFooterPieChart';
 import { Title } from './MyComponents';
 import { useCalculateWindow } from '../hooks/useCalculateWindow';
@@ -33,8 +33,9 @@ export const PieChartCard = ({ title, data }: PieChartProps) => {
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
   
     return (
-      <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
-        {`${(percent * 100).toFixed(0)}%`}
+      <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central"
+       style={{ fontSize: 13, fontWeight: 700, letterSpacing: 1.2}}>
+        {`$${(percent * 10000)}`}
       </text>
     );
   };
@@ -65,6 +66,7 @@ export const PieChartCard = ({ title, data }: PieChartProps) => {
                   <Cell key={`cell-${index}`} fill={item.color} />
                 ))}
               </Pie>
+              <Tooltip />
             </PieChart>
           </ResponsiveContainer>
         </ContianerGraph>

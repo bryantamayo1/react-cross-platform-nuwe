@@ -3,8 +3,9 @@
 ___
 
 ##### Etapas realizadas:
-1. Estructuración del proyecto con sus respectivas carpetas.
-2. Descomposión del proyecto en componentes reutilizables como MiniCard.tsx para la
+1. Creactión del proyecto con Vite y Typescript para una desarrollo más rapido.
+2. Estructuración del proyecto con sus respectivas carpetas.
+3. Descomposión del proyecto en componentes reutilizables como MiniCard.tsx para la
  visualización de las transacciones.
 
 ##### Explicación:

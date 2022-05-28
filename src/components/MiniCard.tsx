@@ -21,6 +21,10 @@ const ContainerMiniCard = styled.div`
     height: 145px;
     text-align: center;
     width: 178px;
+
+    @media(max-width: 1300px){
+        width: 100%;
+    }
 `;
 const CardTitle = styled.div`
     font-size: 15px;

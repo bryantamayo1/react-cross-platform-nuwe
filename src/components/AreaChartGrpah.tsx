@@ -15,8 +15,8 @@ export const AreaChartGrpah = ({ title, data }: AreaChartGrpahProps) => {
   const [startDate, setStartDate] = useState(new Date());
 
   return (
-    <div className="cardDashboard" style={{ marginLeft: 20, padding: 32 }}>
-      <div className="containerTitle">
+    <ContainerAreaChartGrpah className="cardDashboard">
+      <ContainerTitle>
         <Title>{title}</Title>
         <div>
           <DatePicker 
@@ -25,8 +25,9 @@ export const AreaChartGrpah = ({ title, data }: AreaChartGrpahProps) => {
             onChange={(date:Date) => setStartDate(date)}
           />
         </div>
-      </div>
+      </ContainerTitle>
 
+     <div style={{ overflowX: 'auto', overflowY: 'hidden'}}>
       <ContianerGraph>
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart
@@ -48,6 +49,7 @@ export const AreaChartGrpah = ({ title, data }: AreaChartGrpahProps) => {
           </AreaChart>
         </ResponsiveContainer>
       </ContianerGraph>
+      </div> 
 
       <MiniTitle marginStyle="30px 0px 0px 0px">Total Revenue</MiniTitle>
       <Title>$76685.41</Title>
@@ -55,16 +57,40 @@ export const AreaChartGrpah = ({ title, data }: AreaChartGrpahProps) => {
         <IoArrowUpOutline size="10" color="#4AAF05"/>
         <MiniTitle marginStyle="0px" color="#4AAF05">7,00%</MiniTitle>
       </ContainerPercent>
-    </div>
+    </ContainerAreaChartGrpah>
   )
 }
 
+const ContainerAreaChartGrpah = styled.div`
+  padding: 32px;
+  margin-left: 20px;
+  @media(max-width: 900px){
+    margin-left: 0;
+  }
+`;
 const ContianerGraph = styled.div`
     margin-top: 25px;
     height: 400px;
+
+    @media(max-width: 768px) {
+      height: 400px;
+      width: 800px;
+    }
 `;
 const ContainerPercent = styled.div`
     align-items: center;
     display: flex;
     justify-content: start;
+    margin-top: 10px;
+`;
+const ContainerTitle = styled.div`
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    @media(max-width: 768px) {
+      flex-direction: column;
+      align-items: start;
+      row-gap: 10px;
+    }
 `;

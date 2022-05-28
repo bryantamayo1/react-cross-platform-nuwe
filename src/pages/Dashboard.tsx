@@ -77,14 +77,24 @@ const TitlePage = styled.div`
 `;
 
 const Main = styled.div`
-    border: 1px solid red;
     box-sizing: border-box;
     display: grid;
-    height: calc(100vh - 88px - 56px);
-    grid-template-columns: 30% 70%;
+    min-height: calc(100vh - 88px - 56px);
+    grid-template-columns: 25% 75%;
     padding: 20px 14px;
+
+    @media(max-width: 900px){
+        grid-template-columns: 100%;
+        grid-row-gap: 20px;
+    }
 `;
 const ContainerMiniCards = styled.div`
     display: flex;
     justify-content: space-between;
+
+    @media(max-width: 1300px){
+        align-items: center;
+        flex-direction: column;
+        row-gap: 15px;
+    }
 `;

@@ -4,12 +4,27 @@ import { BsThreeDots } from "react-icons/bs";
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 import { ItemFooterPieChart } from './ItemFooterPieChart';
 import { Title } from './MyComponents';
+import { useCalculateWindow } from '../hooks/useCalculateWindow';
+import { useEffect, useState } from 'react';
 
 type PieChartProps = {
   title: string,
   data: dataPieChartInterface[],
 }
 export const PieChartCard = ({ title, data }: PieChartProps) => {
+  const [widthPieChart, setInnerWidth] = useState(0);
+  const {innerWidth} = useCalculateWindow();
+
+  useEffect(() => {
+    if(innerWidth >= 1200){
+      setInnerWidth(120);
+    }else if(innerWidth < 1200 && innerWidth >= 900){
+      setInnerWidth(80);
+    }else if(innerWidth < 900){
+      setInnerWidth(120);
+    }
+  }, [innerWidth])
+  
 
   const RADIAN = Math.PI / 180;
   const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }: any) => {
@@ -42,7 +57,7 @@ export const PieChartCard = ({ title, data }: PieChartProps) => {
                 cy="50%"
                 labelLine={false}
                 label={renderCustomizedLabel}
-                outerRadius={80}
+                outerRadius={widthPieChart}
                 fill="#8884d8"
                 dataKey="value"
               >
@@ -64,8 +79,7 @@ export const PieChartCard = ({ title, data }: PieChartProps) => {
 }
 
 const ContianerPieChart = styled.div`
-    height: calc(100vh - 88px - 56px - 145px - 20px - 15px - 80px);
-    /* height: 472px; */
+    min-height: calc(100vh - 88px - 56px - 145px - 20px - 15px - 80px);
     margin-top: 15px;
     padding: 32px;
 `;

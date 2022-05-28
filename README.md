@@ -17,4 +17,5 @@ ___
     - **Title**  y **MiniTitle** para los respectivos títulos y minitítulos.
     - **PieChartCard.tsx** y **AreaChartGrpah.tsx** para mostrar las gráficas con sus respectivas leyendas.
 
-##### Proceso de migración de componentes de React a React Native:
+##### Integración de componentes de React a React Native:
+Se podría empezar integrando todos los componentes web a react native con sus respectivos componentes como View, Text Button, entre otros. Asimismo se podría investigar tecnologías como *React Native for Web* para obtener un diseño multiplataforma.

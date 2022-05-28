@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { dataGraphAreaChartInterface } from "../interfaces/PieChart";
 import { MiniTitle, Title } from "./MyComponents";
 import {IoArrowUpOutline} from 'react-icons/io5';
+import {AiOutlineCalendar} from 'react-icons/ai';
 
 type AreaChartGrpahProps = {
   title: string,
@@ -25,13 +26,14 @@ export const AreaChartGrpah = ({ title, data }: AreaChartGrpahProps) => {
     <ContainerAreaChartGrpah className="cardDashboard">
       <ContainerTitle>
         <Title>{title}</Title>
-        <div>
+        <ContainerDatePicker>
           <DatePicker 
             dateFormat="dd/MM/yyyy" 
             selected={startDate}
             onChange={(date:Date) => setStartDate(date)}
           />
-        </div>
+          <AiOutlineCalendar size="20"/>
+        </ContainerDatePicker>
       </ContainerTitle>
 
       <div style={{ overflowX: 'auto', overflowY: 'hidden'}}>
@@ -100,4 +102,10 @@ const ContainerTitle = styled.div`
       align-items: start;
       row-gap: 10px;
     }
+`;
+const ContainerDatePicker = styled.div`
+    display: flex;
+    border: 1px solid #E5E5E5;
+    border-radius: 4px;
+    padding: 0px 5px
 `;

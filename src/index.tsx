@@ -5,6 +5,7 @@ import 'normalize.css';
 import "react-datepicker/dist/react-datepicker.css";
 import './styles/index.css';
 import './styles/dashboard.css';
+import './styles/datePicker.css';
 
 ReactDOM.render(
   <React.StrictMode>

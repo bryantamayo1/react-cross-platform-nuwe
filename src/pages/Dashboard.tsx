@@ -16,7 +16,7 @@ export const Dashboard = () => {
   const maxMoney = 50000;
 
   useEffect(() => {
-    // Load data, also this can be download api e.g.
+    // Load data, also this can be download of api e.g.
     setdataPieChart(dataGraphPieChart);
 
     Math.floor(Math.random() * (maxMoney - mintMoney)) + mintMoney;
